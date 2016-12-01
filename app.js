@@ -30,5 +30,17 @@ toDoApp.controller("taskController", ["$scope", function($scope) {
       $scope.tasks = $scope.restoreTasks;
     }
   };
+
+  $scope.moveTaskUp = function(index) {
+    var temp = $scope.tasks[index]
+    $scope.tasks[index] = $scope.tasks[index - 1]
+    $scope.tasks[index - 1] = temp;
+  }
   
+  $scope.moveTaskDown = function(index) {
+    var temp = $scope.tasks[index]
+    $scope.tasks[index] = $scope.tasks[index + 1]
+    $scope.tasks[index + 1] = temp;
+  }
+
 }]);
