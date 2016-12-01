@@ -32,15 +32,19 @@ toDoApp.controller("taskController", ["$scope", function($scope) {
   };
 
   $scope.moveTaskUp = function(index) {
-    var temp = $scope.tasks[index]
-    $scope.tasks[index] = $scope.tasks[index - 1]
-    $scope.tasks[index - 1] = temp;
+    if (typeof $scope.tasks[index - 1] !== "undefined") {
+      var temp = $scope.tasks[index]
+      $scope.tasks[index] = $scope.tasks[index - 1]
+      $scope.tasks[index - 1] = temp;
+    }
   }
   
   $scope.moveTaskDown = function(index) {
-    var temp = $scope.tasks[index]
-    $scope.tasks[index] = $scope.tasks[index + 1]
-    $scope.tasks[index + 1] = temp;
+    if (typeof $scope.tasks[index + 1] !== "undefined") {
+      var temp = $scope.tasks[index]
+      $scope.tasks[index] = $scope.tasks[index + 1]
+      $scope.tasks[index + 1] = temp;
+    }
   }
 
 }]);
